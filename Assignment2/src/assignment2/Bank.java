@@ -23,6 +23,9 @@ public class Bank {
     
     public boolean addAccount(long accNum, double bal, String own){
         if(numAccounts>=maxAccount) return false;
+        if(bal < 0)return false;
+        if(accNum < 0)return false;
+        if(findAccount(accNum) != -1)return false;
         accountList[numAccounts] = new Account(accNum, bal, own);
         numAccounts++;
         return true;
