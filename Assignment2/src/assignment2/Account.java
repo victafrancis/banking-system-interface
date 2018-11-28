@@ -11,6 +11,10 @@ package assignment2;
  */
 public class Account {
     
+    //Members:
+    //Maria Lilian Yang - 101151657
+    //Francis Victa - 101159185
+    
     private long accountNum;
     private double balance;
     private String owner;

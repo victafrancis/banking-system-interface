@@ -13,6 +13,11 @@ import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
 
 public class Assignment2 extends Application implements EventHandler<ActionEvent> {
+    
+    //Members:
+    //Maria Lilian Yang - 101151657
+    //Francis Victa - 101159185
+    
     private  Scene home,addScene,depositScene,withdrawScene,listScene,transferScene;
     Stage window;  // represents main Stage globally
     Button btnAddMenu,btnDepositMenu,btnWithdrawMenu,btnTransferMenu,btnListMenu,btnAdd,btnHome,btnListHome;
@@ -46,6 +51,7 @@ public class Assignment2 extends Application implements EventHandler<ActionEvent
         VBox homeLayout = new VBox();
         homeLayout.setAlignment(Pos.CENTER);
         homeLayout.getChildren().addAll(homeTitle,lblHomeMenu,btnAddMenu,btnDepositMenu,btnWithdrawMenu,btnTransferMenu,btnListMenu);
+        homeLayout.setStyle("-fx-background-color: lightcyan"); //set bg color
         home = new Scene(homeLayout,500,500);
         
         // setting up Add Scene
@@ -82,6 +88,7 @@ public class Assignment2 extends Application implements EventHandler<ActionEvent
         addMessage.getChildren().add(lblAddMessageErr);
         
         addLayout.getChildren().addAll(addTitle,lblName,custName,lblAccNum,custAccNum,lblBalance,custBalance,btnAdd,btnHome,addMessage,addMessage2);
+        addLayout.setStyle("-fx-background-color: lightcyan"); //set bg color
         addScene = new Scene(addLayout,500,500);
         
     
@@ -120,6 +127,7 @@ public class Assignment2 extends Application implements EventHandler<ActionEvent
         VBox depositLayout = new VBox();
         depositLayout.setAlignment(Pos.CENTER_LEFT);
         depositLayout.getChildren().addAll(depositTitle,lblDepAccNum,depositAccNum,lblDepAmount,depositAmt,btnDeposit,btnDepositHome, depositMessage, depositMessage2);
+        depositLayout.setStyle("-fx-background-color: lightcyan"); //set bg color
         depositScene = new Scene(depositLayout,500,500);
         
         
@@ -158,6 +166,7 @@ public class Assignment2 extends Application implements EventHandler<ActionEvent
         VBox withdrawLayout = new VBox();
         withdrawLayout.setAlignment(Pos.CENTER_LEFT);
         withdrawLayout.getChildren().addAll(withdrawTitle,lblWithAccNum,withdrawAccNum,lblWithAmount,withdrawAmt,btnWithdraw,btnWithdrawHome,withdrawMessage,withdrawMessage2);
+        withdrawLayout.setStyle("-fx-background-color: lightcyan"); //set bg color
         withdrawScene = new Scene(withdrawLayout,500,500);
         
         
@@ -198,6 +207,7 @@ public class Assignment2 extends Application implements EventHandler<ActionEvent
         VBox transferLayout = new VBox();
         transferLayout.setAlignment(Pos.CENTER_LEFT);
         transferLayout.getChildren().addAll(transferTitle,lblTransferAccFrom,transferAccNumFrom,lblTransferAccTo,transferAccNumTo,lblTransferAmount, transferAmount,btnTransfer,btnTransferHome, transferMessage, transferMessage2);
+        transferLayout.setStyle("-fx-background-color: lightcyan");
         transferScene = new Scene(transferLayout,500,500);
         
         // setting up List Scene
@@ -206,6 +216,7 @@ public class Assignment2 extends Application implements EventHandler<ActionEvent
         btnListHome = new Button("Back");btnListHome.setOnAction(this);btnListHome.setMaxWidth(Double.MAX_VALUE);
         VBox listLayout =new VBox();
         listLayout.getChildren().addAll(lblShow,accountList,btnListHome);
+        listLayout.setStyle("-fx-background-color: lightcyan");
         listScene = new Scene (listLayout,500,500);
          
         window.setScene(home);
@@ -258,6 +269,9 @@ public class Assignment2 extends Application implements EventHandler<ActionEvent
 
                         lblAddMessageErr.setText("Please enter name input..");
                     }               
+                custName.clear();
+                custAccNum.clear();
+                custBalance.clear();
                 
             }catch(Exception error){
                 
@@ -265,9 +279,7 @@ public class Assignment2 extends Application implements EventHandler<ActionEvent
             
             }
             
-            custName.clear();
-            custAccNum.clear();
-            custBalance.clear();
+            
         }
         
         //opens deposit window
@@ -308,15 +320,15 @@ public class Assignment2 extends Application implements EventHandler<ActionEvent
                     lblDepositMessageErr.setText("Invalid Account No.");
                 
                 }
+             
+                depositAccNum.clear();
+                depositAmt.clear();
                 
             }catch(Exception error){
                 
                 lblDepositMessageErr.setText("Please enter valid input..");
 
             }
-            
-           depositAccNum.clear();
-           depositAmt.clear();
             
         }
         
@@ -355,14 +367,14 @@ public class Assignment2 extends Application implements EventHandler<ActionEvent
                 }else{
                     lblWithdrawMessageErr.setText("Invalid Acct. No.");
                 }
-                
+             
+                withdrawAccNum.clear();
+                withdrawAmt.clear();
+               
             }catch(Exception error){
                 
                 lblWithdrawMessageErr.setText("Please enter valid input..");
             }
-            
-            withdrawAccNum.clear();
-            withdrawAmt.clear();
         }
         
         //opens transfer window
@@ -402,15 +414,15 @@ public class Assignment2 extends Application implements EventHandler<ActionEvent
                     lblTransferMessageErr.setText("Please enter valid accounts..");
 
                 }
+            
+                transferAccNumFrom.clear();
+                transferAccNumTo.clear();
+                transferAmount.clear();
                 
             }catch(Exception error){
                 
                 lblTransferMessageErr.setText("Please enter valid input..");
             }
-            
-            transferAccNumFrom.clear();
-            transferAccNumTo.clear();
-            transferAmount.clear();
         }
         
         //open list accounts

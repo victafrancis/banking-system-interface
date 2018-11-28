@@ -11,6 +11,10 @@ package assignment2;
  */
 public class Bank {
     
+    //Members:
+    //Maria Lilian Yang - 101151657
+    //Francis Victa - 101159185
+    
     private Account[] accountList;
     private int numAccounts;
     private int maxAccount;
